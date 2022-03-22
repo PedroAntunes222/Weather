@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RouterModule } from '@angular/router';
 import { allAppRoutes } from './routes';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -24,7 +23,6 @@ import { WeatherComponent } from './weather/weather.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(allAppRoutes),
-    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

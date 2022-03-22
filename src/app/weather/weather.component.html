@@ -1,8 +1,11 @@
 <div class="container">
+
     <div class="row">
 
-        <div class="col-md-6">
-            <h3 class="text-center">Pequise pelo tempo: </h3>
+        <div class="coluna">
+            <!-- <h3 class="weather-title">Consulte o tempo</h3> -->
+            
+            <img class="weather-icon" src={{this.weatherData?.current.weather_icons}} />
 
             <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPIXU(weatherSearchForm.value)">
                 <div class="form-group">
@@ -11,11 +14,11 @@
                         type="text"
                         id="weatherLocation"
                         aria-describedby="weatherLocation"
-                        placeholder="Please input a Location"
+                        placeholder="Pesquise por um local"
                         formControlName="location" />
                 </div>
 
-                <div class="text-center">
+                <div class="weather-text">
                     <button type="submit" class="btn btn-success btn-md"> Search </button>
                 </div>
 
@@ -23,11 +26,21 @@
 
         </div>
 
-        <div class="col-md-6">
-            <h3 class="text-center"> Detalhes do tempo: </h3>
-            <p class="text-center">Temperatura: {{this.weatherData?.current.temperature}}</p>
-            <p class="text-center">Sensação: {{this.weatherData?.current.feelslike}}</p>
-            <p class="text-center">Local: {{this.weatherData?.location.country}}, {{this.weatherData?.location.name}}</p>
+        <div class="coluna">
+            <h3 class="weather-title"> Detalhes do tempo: </h3>
+            <div class="weather-grid">
+                <div>
+                    <p class="weather-text">Local: {{this.weatherData?.location.country}}, {{this.weatherData?.location.name}}</p>
+                    <p class="weather-text" id="weather-desc">Tempo: {{this.weatherData?.current.weather_descriptions}}</p>
+                 </div>
+
+                <div>
+                    <p class="weather-text">Sensação: {{this.weatherData?.current.feelslike}}</p>
+                    <p class="weather-text" id="weather-temp">Temperatura: {{this.weatherData?.current.temperature}}</p>
+                </div>
+            </div>
+            
+             
         </div>
 
     </div>
